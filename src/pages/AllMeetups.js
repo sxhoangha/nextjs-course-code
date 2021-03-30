@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-import MeetupList from '../components/meetups/MeetupList';
+import MeetupList from "../components/meetups/MeetupList";
 
 function AllMeetupsPage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -8,9 +8,7 @@ function AllMeetupsPage() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(
-      'https://react-getting-started-48dec-default-rtdb.firebaseio.com/meetups.json'
-    )
+    fetch("https://kanbanfire-12f4e-default-rtdb.firebaseio.com/meetups.json")
       .then((response) => {
         return response.json();
       })
@@ -20,7 +18,7 @@ function AllMeetupsPage() {
         for (const key in data) {
           const meetup = {
             id: key,
-            ...data[key]
+            ...data[key],
           };
 
           meetups.push(meetup);
